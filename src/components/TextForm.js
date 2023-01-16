@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 export default function TextForm(props) {
-  const [text, setText] = useState("Enter text here");  
+  const [text, setText] = useState("");  
   const handletoUpperCase = () => {
     setText(text.toUpperCase());
   }
@@ -43,11 +43,11 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={handleFirstLetterCapital}>First letter capital</button>
         <button className="btn btn-primary mx-1" onClick={handleClearText}>Clear text</button>
      </div>
-      <div className="container my-3">
-        <h3>Your text summry</h3>
+      <div className="container my-1">
+        <h5>Your text summry</h5>
         <p>{text.split(' ').length} Word and {text.length} Characters</p>
         <p>{0.008 * text.split(' ').length} Minutes to read</p>
-        <h3>Preview</h3>
+        <h5>Preview</h5>
         <p>{text}</p>
       </div>
      </> 

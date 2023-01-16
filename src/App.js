@@ -1,9 +1,10 @@
 
 import { useState } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import About from './components/About';
 import Navbar from './components/Navbar';
-// import TextForm from './components/TextForm';
+import TextForm from './components/TextForm';
 
 function App() {
   const [mode, setMode] = useState('dark'); 
@@ -14,14 +15,19 @@ function App() {
     else
       setMode('dark');  
   };
-  
   return (
     <>
-      <Navbar title = "Text Utils" aboutText = "About Us" mode = {mode} toggleMode={toggleMode}/>
-      <div className="container">
-        {/* <TextForm heading="Enter the Text to analyze below"/> */}
-        <About />
-      </div>
+      
+        <Router>
+          <Navbar title = "Text Utils" aboutText = "About Us" mode = {mode} toggleMode={toggleMode}/>
+          <div className="container">
+            <Routes>
+              <Route exact path="/" element={<TextForm heading="Enter the Text to analyze below"/>} />
+              <Route exact path="/about" element={<About />} />
+            </Routes>
+          </div>
+        </Router>
+      
     </>
   );
 }
