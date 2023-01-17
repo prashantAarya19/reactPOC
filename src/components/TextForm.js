@@ -38,15 +38,15 @@ export default function TextForm(props) {
         <div className="mb-3"> 
             <textarea className="form-control" id="myTextBox" onChange={handleOnChange} value={text} rows="8"></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handletoUpperCase}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-1" onClick={handletoLowerCase}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleFirstLetterCapital}>First letter capital</button>
-        <button className="btn btn-primary mx-1" onClick={handleClearText}>Clear text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handletoUpperCase}>Convert to Uppercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handletoLowerCase}>Convert to Lowercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleFirstLetterCapital}>First letter capital</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleClearText}>Clear text</button>
      </div>
       <div className="container my-1">
         <h5>Your text summry</h5>
-        <p>{text.split(' ').length} Word and {text.length} Characters</p>
-        <p>{0.008 * text.split(' ').length} Minutes to read</p>
+        <p>{text.split(' ').filter((elm) => elm.length !== 0).length} Word and {text.length} Characters</p>
+        <p>{0.008 * text.split(' ').filter((elm) => elm.length !== 0).length} Minutes to read</p>
         <h5>Preview</h5>
         <p>{text}</p>
       </div>
